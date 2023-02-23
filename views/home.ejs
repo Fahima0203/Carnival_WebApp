@@ -1,0 +1,89 @@
+<%- layout("boiler")-%>
+<%- include("nav")-%>
+<%- include("clubnav")-%>
+<%- include("flash")-%>
+
+<%console.log(found)%> 
+<div class="para  align-middle "  >
+  <div class=" p-4" style="text-align: center;">
+    <h1 class="mt-5 welcome">Welcome!</h1>
+    <p class="qouts">"To achieve great things, two things are needed: a plan, and not quite enough time"</p>
+      <a href="/#allclub" ><button class="btn homebtn mt-4" >Explore</button></a>
+  </div>
+  
+
+</div>
+
+<div class="club-back">
+  <section id="allclub">
+<div class="container p-5">
+  <h1 class="text-center head">Clubs</h1>
+  <hr>
+</div>
+<div class="container p-3 "style="color:white ;">
+  
+<% for( let club of found) { %>
+  <div class="card mb-5    card-each" >
+    <div class="row g-0 d-flex justify-content-center">
+      <div class="col-md-4 img">
+        <% club.images.forEach(element => { %>
+          <img height="189px"    
+          width="300px" src="<%=element.url %>" class="img-fluid rounded-start" alt="...">   
+        <% }) %>
+        
+      </div>
+      
+      <div class="col-md-8 card-club">  
+        <form action="/club/<%=club.clubname%>" method="get">   
+        <div class="card-body">
+          <h5 class="card-title fw-bold"><%=club.clubname%> </h5>
+          <p class="card-text"><%=club.discription.slice(0, 150)%>... </p>
+         
+          <button type="submit" class="btn homebtn mt-3">View More</button>
+        </div>
+      </form>
+      
+      </div>
+    
+    </div>
+  </div>
+    
+
+<% } %>
+</div>
+  </section>
+
+
+<% if ("620f2281964cadf729be5283"==currentUser._id) { %>
+  <%console.log("Podaaa",currentUser.username)%>
+  
+  <form action="/newclub" method="get">
+    <a href="/newclub" class="float" >
+      <i class="fa fa-plus my-float"></i>
+      </a>
+    
+  </form>
+ 
+<% } %>
+<section id="about" class="container p-4">
+  <h1 class="text-center head">About</h1>
+  <hr>
+<p class="text-center pb-5 mb-5"style="color:white ;">      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus maiores velit, cumque fugit, tempore ducimus voluptates itaque unde rerum quam quae nisi doloribus nobis quidem eius sit praesentium dolorem molestiae at. Saepe quo cupiditate voluptatibus illo ullam nihil voluptatem ab tempora omnis, quam iure, eum dicta sed. Esse velit veritatis recusandae a sint cum nostrum maiores, dolorum asperiores in nemo ali
+    quam similique expedita. Debitis facere harum suscipit illo pariatur voluptate! Adipisci commodi nobis obcaecati labore, laudantium voluptatem numquam quis. Eaque nihil sit repudiandae a magnam quos beatae! Rem earum ea repudiandae! Iusto voluptatem corporis reiciendis asperiores aliquam aliquid sint soluta voluptates eum itaque cumque ex, at qui voluptate debitis dolores reprehenderit voluptatibus iure rem atque. Soluta necessitatibus maxime illum quae consequatur deleniti unde provident sed neque, cupiditate nobis non totam fugit dolorem optio harum a officia voluptas accusamus velit voluptatem itaque. Eveniet vel iusto nemo iste laudantium! Ad, iusto quas odio eius est, earum fuga voluptate quasi omnis eligendi cumque exercitationem incidunt! Odit nemo dolorem nesciunt nostrum, vel ea quos tempora qui voluptatum ratione aut praesentium cumque blanditiis totam nobis distinctio. Hic velit neque rem soluta temporibus sequi. Consectetur consequatur id possimus fugiat placeat unde sequi cupiditate voluptatum optio aut!</p>
+</section>
+<div class="container pb-5">
+ <div class="row social d-flex justify-content-center">
+   <div class="col-sm-4 d-flex justify-content-center">
+    <a href="https://twitter.com/"style="color: white;"><i class="fab fa-twitter fs-3" > </i></a>
+   </div>
+   <div class="col-sm-4 d-flex justify-content-center">
+   <a href="https://facebook.com/"style="color: white;"> <i class="fab fa-facebook fs-3"></i></a>
+   </div>
+   <div class="col-sm-4 d-flex justify-content-center">
+    <a href="https://instagram.com/"style="color: white;"><i class="fab fa-instagram fs-3"></i></a>
+   </div>
+ </div>
+</div>
+</div>
+
+<%- include("footer") -%> 

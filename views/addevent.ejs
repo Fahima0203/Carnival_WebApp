@@ -1,0 +1,25 @@
+<%- layout("boiler")-%>
+<%- include("nav")-%>
+
+
+<link rel="stylesheet" href="/css/login.css">
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <h2 class="my-4">EDIT</h2>
+          <form action="/club/<%=clubname%>/add" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
+            <input type="text" class="fadeIn second  px-3 m-3 form-control mb-3" name="eventname"   placeholder="Event Name" required>
+            <input type="text" class="fadeIn second  px-3 m-3 form-control mb-3" name="eventdate"   placeholder="Event Date" required>
+           
+            <input type="text" class="fadeIn second  px-3 m-3 form-control mb-3" name="enddate"   placeholder="Event Time" required>
+          
+            <textarea name="eventdiscription"  class="fadeIn second  px-3  form-control" style="margin-left: 35px;"  id="area" cols="20" rows="5" placeholder="Discription" required></textarea>
+           
+           
+            <input class="form-control fadeIn second  px-2 my-3" type="file" style="margin-left: 35px;" name="image" placeholder="Choose Image" multiple required>
+            <input type="submit" class="fadeIn fourth" value="ADD">
+          </form>
+    </div>
+  </div>
+  <%- include("footer") -%> 
+<script src="/js/validation.js"></script>
